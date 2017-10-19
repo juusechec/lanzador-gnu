@@ -19,7 +19,7 @@ if [ "$global" = "y" ]; then
   APP_DIR='/usr/share/applications/'
   SUDO='sudo'
 else
-  APP_DIR='~/.local/share/applications/'
+  APP_DIR="$HOME/.local/share/applications/"
   SUDO=''
 fi
 
