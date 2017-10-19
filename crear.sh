@@ -12,15 +12,15 @@ read icono
 # rationale: lowercase
 nombreicono=$(echo "$nombre" | tr '[:upper:]' '[:lower:]' | sed 's/\ /-/g')
 echo '¿Quiere que los demás usuarios accedan al lanzador?: (y/n)'
-read local
+read global
 # rationale: lowercase an first letter
-local=$(echo "$local" | tr '[:upper:]' '[:lower:]' | head -c 1)
-if [ "$local" = "y" ]; then
-  APP_DIR='~/.local/share/applications/'
-  SUDO=''
-else
+global=$(echo "$global" | tr '[:upper:]' '[:lower:]' | head -c 1)
+if [ "$global" = "y" ]; then
   APP_DIR='/usr/share/applications/'
   SUDO='sudo'
+else
+  APP_DIR='~/.local/share/applications/'
+  SUDO=''
 fi
 
 $SUDO tee ${APP_DIR}${nombreicono}.desktop << EOF
